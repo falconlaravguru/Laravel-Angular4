@@ -60,7 +60,6 @@ class PlayerController extends Controller
             "age" => $data->age,
             "club" => $data->club->name,
             "style" => $styles,
-            "style_id" => $data->style_id,
             "role" => $data->role->description,
             "personality" => $data->personality->description
         ];

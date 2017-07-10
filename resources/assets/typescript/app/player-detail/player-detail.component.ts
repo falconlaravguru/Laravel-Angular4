@@ -31,9 +31,22 @@ export class PlayerDetailComponent implements OnInit {
             this.id = +params['id'];
         });
 
-        this.starService.getPlayer(this.id).then((player) => {
-            this.player_selected = player;
-            
+        this.starService.getPlayer(this.id).then((se_player) => {
+            this.player_selected = se_player;
+
+            let arr_styles = this.player_selected.style;
+            let temp_styles = '';
+
+            for (var key in arr_styles) {
+                let value = arr_styles[key];
+                console.log(key,value);
+                for ( var num in value ) {
+                    let desc = value[num];
+                    temp_styles += desc + ' ';
+                }
+            }
+
+            this.player_selected.styles = temp_styles;
             console.log(this.player_selected);
         });
         

@@ -6,4 +6,5 @@ export class Player {
     club_: string;
     style: Object;
     personality: string;
+    styles: string;
 }

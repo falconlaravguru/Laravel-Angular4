@@ -12,6 +12,8 @@ import { PlayersComponent } from './players/players.component';
 import { PlayerDetailComponent } from "./player-detail/player-detail.component";
 import { PlayerOperationComponent } from "./player-operation/player-operation.component";
 
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+
 import { StarService } from "./star.service";
 
 @NgModule({
@@ -19,7 +21,7 @@ import { StarService } from "./star.service";
     AppComponent,
     PlayersComponent,
     PlayerDetailComponent,
-    PlayerOperationComponent
+    PlayerOperationComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { StarService } from "./star.service";
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDElmkJiFE0jDurWkUzGun0yNKS2NAxZu8'
-    })
+    }),
+    MultiselectDropdownModule
   ],
   providers: [StarService],
   bootstrap: [AppComponent]

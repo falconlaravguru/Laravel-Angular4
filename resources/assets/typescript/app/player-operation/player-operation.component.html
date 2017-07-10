@@ -21,9 +21,9 @@
         </div>
         <div class="name col-sm-12 pt-8">
             <span class="col-sm-3">Style:</span>
-            <div class="col-sm-6">
-                <input type="text" [(ngModel)] = "playerNew.style" placeholder="style" /><br>
-            </div>
+            
+            <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="myOptions" [texts]="myTexts" [settings]="mySettings" [(ngModel)]="optionsModel"></ss-multiselect-dropdown>
+
         </div>
         <div class="name col-sm-12 pt-8">
             <span class="col-sm-3">Club:</span>
