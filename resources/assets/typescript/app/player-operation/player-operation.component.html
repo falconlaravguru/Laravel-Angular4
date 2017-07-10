@@ -1,3 +1,45 @@
 <div class="container">
-    
+    <div class="col-xs-12">
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Name:</span>
+            <div class="col-sm-6">
+                <input type="text" [(ngModel)] = "playerNew.name" placeholder="name" /><br>
+            </div>
+            
+        </div>
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Age:</span>
+            <div class="col-sm-6">
+                <input type="text" [(ngModel)] = "playerNew.age" placeholder="age" /><br>
+            </div>
+        </div>
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Role:</span>
+            <div class="col-sm-6">
+                <input type="text" [(ngModel)] = "playerNew.role" placeholder="role" /><br>
+            </div>
+        </div>
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Style:</span>
+            <div class="col-sm-6">
+                <input type="text" [(ngModel)] = "playerNew.style" placeholder="style" /><br>
+            </div>
+        </div>
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Club:</span>
+            <div class="col-sm-6">
+                <input type="text" [(ngModel)] = "playerNew.club" placeholder="club" /><br>
+            </div>
+        </div>
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Personality:</span>
+            <div class="col-sm-6">
+                <input type="text" [(ngModel)] = "playerNew.personality" placeholder="personality" /><br>
+            </div>
+        </div>
+        
+    </div>
+    <div class="btn-add pt-8">
+        <button type="button" class="btn btn-primary mt-8" (click)="add_player()">Add Player</button>
+    </div>
 </div>

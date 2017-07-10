@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Response,URLSearchParams, RequestOptions } from "@angular/http";
+import { Http, Response,URLSearchParams, RequestOptions, Headers } from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 
 import { Club } from "./model/club";
@@ -14,8 +14,12 @@ export class StarService {
   public coaches: Coach[];
   public clubs: Club[];
 
-
   public playerUrl: string = 'api/angular/player';
+  public crt_Url: string = 'api/angular/player/create';
+
+  private headers = new Headers({
+    "content-type": "application/json"
+  });
 
   constructor(private http: Http) {  }
 
@@ -62,4 +66,9 @@ export class StarService {
       .catch(StarService.handleError);
   }
 
+  create(player_new: Player): Promise<void> {
+    let url = `${this.crt_Url}`;
+
+    return this.http.post(url, JSON.stringify(player_new), {headers: this.headers }).toPromise().then(() => null);
+  }
 }

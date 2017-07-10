@@ -4,6 +4,6 @@ export class Player {
     age: number;
     role: string;
     club_: string;
-    style: string;
+    style: Object;
     personality: string;
 }

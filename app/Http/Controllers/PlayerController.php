@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Player;
 use App\Model\Style;
 
+
 class PlayerController extends Controller
 {
     //
@@ -46,10 +47,11 @@ class PlayerController extends Controller
         $data = Player::find($id);
 
         $parse_style = json_decode($data->style_id);
-        $styles = '';
+        $styles = [];
 
         foreach ($parse_style as $value) {
-            $styles .= Style::find($value)->description . ' ';
+            $style = Style::find($value)->description;
+            array_push($styles,[$value => $style]);
         }
 
         $response_data = [
@@ -58,10 +60,28 @@ class PlayerController extends Controller
             "age" => $data->age,
             "club" => $data->club->name,
             "style" => $styles,
+            "style_id" => $data->style_id,
             "role" => $data->role->description,
             "personality" => $data->personality->description
         ];
 
         return $response_data;
+    }
+
+    public function CreatePlayer(Request $request) {
+        $request_data = $request->all();
+        print_r($request_data);exit;
+        $new_player = new Player;
+
+        $new_player->name = $request_data->name;
+        $new_player->age = $request_data->age;
+        $new_player->role_id = $request_data->role;
+        $new_player->club_id = $request_data->club;
+        $new_player->style_id = $request_data->style;
+        $new_player->personality_id = $request_data->personality;
+
+        $new_player->save();
+
+        return $request_data;
     }
 }
