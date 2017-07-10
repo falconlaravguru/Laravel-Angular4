@@ -1,0 +1,12 @@
+<div *ngIf = "player_selected" class="container">
+    <h1>Name: {{ player_selected.name }}</h1>
+    <h6>Age: {{ player_selected.age }} </h6>
+    <h6>Club: {{ player_selected.club }} </h6>
+    <h6>Role: {{ player_selected.role }} </h6>
+    <h6>Style: {{ player_selected.style }} </h6>
+    <h6>Personality: {{ player_selected.personality }} </h6>
+</div>
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
