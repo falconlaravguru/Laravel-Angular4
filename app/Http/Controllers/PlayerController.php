@@ -59,28 +59,60 @@ class PlayerController extends Controller
             "name" => $data->name,
             "age" => $data->age,
             "club" => $data->club->name,
+            "club_id" => $data->club_id,
             "style" => $styles,
+            "style_id" => $data->style_id,
             "role" => $data->role->description,
-            "personality" => $data->personality->description
+            "role_id" => $data->role_id,
+            "personality" => $data->personality->description,
+            "personality_id" => $data->personality_id,
         ];
 
         return $response_data;
     }
 
     public function CreatePlayer(Request $request) {
+        
         $request_data = $request->all();
-        print_r($request_data);exit;
+        
         $new_player = new Player;
 
-        $new_player->name = $request_data->name;
-        $new_player->age = $request_data->age;
-        $new_player->role_id = $request_data->role;
-        $new_player->club_id = $request_data->club;
-        $new_player->style_id = $request_data->style;
-        $new_player->personality_id = $request_data->personality;
+        $new_player->name = $request_data['name'];
+        
+        $new_player->age = (int)$request_data['age'];
+        $new_player->role_id = (int)$request_data['role'];
+        $new_player->club_id = (int)$request_data['club'];
+        $new_player->style_id = json_encode($request_data['style']);
+        $new_player->personality_id = $request_data['personality'];
 
         $new_player->save();
 
         return $request_data;
+    }
+
+    public function UpdatePlayer($id) {
+
+        $request_data = request()->all();
+
+        $edit_player = Player::find($id);
+
+        $edit_player->name = $request_data['name'];
+        $edit_player->age = (int)$request_data['age'];
+        $edit_player->role_id = (int)$request_data['role'];
+        $edit_player->club_id = (int)$request_data['club'];
+        $edit_player->style_id = json_encode($request_data['style']);
+        $edit_player->personality_id = $request_data['personality'];
+
+        $edit_player->save();
+
+        return $request_data;
+    }
+
+    public function DeletePlayer($id) {
+        $delete_player = Player::find($id);
+        
+        $delete_player->delete();
+
+        return "Delete Successfully";
     }
 }

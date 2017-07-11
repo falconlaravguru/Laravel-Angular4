@@ -9,14 +9,16 @@
                 <td>Age</td>
                 <td>Club</td>
                 <td>Role</td>
+                <td>Edit</td>
+                <td>Delete</td>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor = "let player of players; let index = index" class="playerList" (click) = "onSelected(player)">
-                <td>
+            <tr *ngFor = "let player of players; let index = index" class="playerList">
+                <td >
                     {{index + 1}}
                 </td>
-                <td>
+                <td (click) = "onSelected(player)">
                     {{player.name}}
                 </td>
                 <td>
@@ -27,6 +29,12 @@
                 </td>
                 <td>
                     {{player.role}}
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success" (click) = "OnEdit(player.id)">Edit</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click) = "OnDelete(player.id)">Delete</button>
                 </td>
             </tr>
         </tbody>

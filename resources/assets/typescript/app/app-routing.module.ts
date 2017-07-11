@@ -21,7 +21,7 @@ const routes:Routes = [
         component: PlayersComponent
     },
     {
-        path: 'AddPlayer',
+        path: 'AddPlayer/:id',
         component: PlayerOperationComponent
     }
 ]

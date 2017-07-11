@@ -24,4 +24,8 @@ Route::prefix('angular')->group(function() {
     Route::get('player/{id}','PlayerController@GetPlayer');
 
     Route::post('player/create','PlayerController@CreatePlayer');
+
+    Route::put('player/update/{id}','PlayerController@UpdatePlayer');
+
+    Route::delete('player/delete/{id}','PlayerController@DeletePlayer');
 });

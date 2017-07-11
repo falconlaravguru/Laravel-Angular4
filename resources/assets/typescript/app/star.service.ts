@@ -16,6 +16,8 @@ export class StarService {
 
   public playerUrl: string = 'api/angular/player';
   public crt_Url: string = 'api/angular/player/create';
+  public upt_Url: string = 'api/angular/player/update';
+  public del_Url: string = 'api/angular/player/delete';
 
   private headers = new Headers({
     "content-type": "application/json"
@@ -70,5 +72,17 @@ export class StarService {
     let url = `${this.crt_Url}`;
 
     return this.http.post(url, JSON.stringify(player_new), {headers: this.headers }).toPromise().then(() => null);
+  }
+
+  update(player_Edit: Player): Promise<void> {
+    let url = `${this.upt_Url}/${player_Edit.id}`;
+
+    return this.http.put(url, JSON.stringify(player_Edit), {headers: this.headers }).toPromise().then(() => null);
+  }
+
+  delete(id: number): Promise<void> {
+    let url = `${this.del_Url}/${id}`;
+
+    return this.http.delete(url, {headers: this.headers }).toPromise().then(() => null);
   }
 }

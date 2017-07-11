@@ -78,8 +78,6 @@
                     Soccer Stars
                 </div>
                 <my-app>Loading...</my-app>
-
-        
             </div>
         </div>
         <!--Script External Files-->

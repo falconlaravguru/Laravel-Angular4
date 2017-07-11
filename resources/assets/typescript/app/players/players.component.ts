@@ -38,7 +38,15 @@ export class PlayersComponent implements OnInit {
   
   OnAddPlayer(): void {
     alert("add player");
-    this.router.navigate(['AddPlayer']);
+    let id = 0;
+    this.router.navigate(['AddPlayer', id]);
+  }
+  OnEdit(id: number): void {
+    alert(id);
+    this.router.navigate(['AddPlayer',id]);
+  }
+  OnDelete(id: number): void {
+    this.starService.delete(id);
   }
 
 }

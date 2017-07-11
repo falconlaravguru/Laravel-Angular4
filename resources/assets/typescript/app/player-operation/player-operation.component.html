@@ -16,30 +16,33 @@
         <div class="name col-sm-12 pt-8">
             <span class="col-sm-3">Role:</span>
             <div class="col-sm-6">
-                <input type="text" [(ngModel)] = "playerNew.role" placeholder="role" /><br>
+                <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="RoleOptions" [texts]="myTexts" [settings]="singleSettings" [(ngModel)]="role_options"></ss-multiselect-dropdown>
             </div>
         </div>
         <div class="name col-sm-12 pt-8">
             <span class="col-sm-3">Style:</span>
-            
-            <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="myOptions" [texts]="myTexts" [settings]="mySettings" [(ngModel)]="optionsModel"></ss-multiselect-dropdown>
-
+            <div class="col-sm-6">
+                <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="StyleOptions" [texts]="myTexts" [settings]="mySettings" [(ngModel)]="style_options"></ss-multiselect-dropdown>
+            </div>
         </div>
         <div class="name col-sm-12 pt-8">
             <span class="col-sm-3">Club:</span>
             <div class="col-sm-6">
-                <input type="text" [(ngModel)] = "playerNew.club" placeholder="club" /><br>
+                <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="ClubOptions" [texts]="myTexts" [settings]="singleSettings" [(ngModel)]="club_options"></ss-multiselect-dropdown>
             </div>
         </div>
         <div class="name col-sm-12 pt-8">
             <span class="col-sm-3">Personality:</span>
             <div class="col-sm-6">
-                <input type="text" [(ngModel)] = "playerNew.personality" placeholder="personality" /><br>
+                <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="PersonalityOptions" [texts]="myTexts" [settings]="singleSettings" [(ngModel)]="person_options"></ss-multiselect-dropdown>
             </div>
         </div>
         
     </div>
-    <div class="btn-add pt-8">
+    <div class="btn-add pt-8" *ngIf="id == 0">
         <button type="button" class="btn btn-primary mt-8" (click)="add_player()">Add Player</button>
+    </div>
+    <div class="btn-add pt-8" *ngIf="id > 0">
+        <button type="button" class="btn btn-primary mt-8" (click)="update_player()">Update Player</button>
     </div>
 </div>

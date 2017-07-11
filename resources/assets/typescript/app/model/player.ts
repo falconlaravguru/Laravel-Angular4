@@ -3,8 +3,12 @@ export class Player {
     name: string;
     age: number;
     role: string;
-    club_: string;
+    club: string;
     style: Object;
     personality: string;
     styles: string;
+    style_id: string;
+    role_id: string;
+    club_id: string;
+    personality_id: string;
 }
