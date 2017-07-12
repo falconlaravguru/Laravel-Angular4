@@ -11,6 +11,7 @@ export class LoginService {
     });
     private loginUrl:string = "api/angular/login";
     private logoutUrl:string = "api/angular/logout";
+    private registerUrl:string = "api/angular/register";
 
     constructor( private http: Http ) {}
 
@@ -18,19 +19,30 @@ export class LoginService {
         return Promise.reject(error.message || error);
     }
     
-    login(request_data: any): Promise<void> {
+    login(request_data: any): Promise<Object> {
         let url = this.loginUrl;
         console.log(request_data);
         return this.http.post(url, JSON.stringify(request_data), {headers: this.headers})
         .toPromise()
         .then((response: Response) => {
-            console.log(response);
+            return response.json();
         }).catch(LoginService.handleError);
     }
 
     logout(): Promise<void> {
         let url = this.logoutUrl;
         return this.http.get(url)
+        .toPromise()
+        .then((response: Response) => {
+            console.log(response);
+        }).catch(LoginService.handleError);
+    }
+
+    register(request_data): Promise<void> {
+        console.log(request_data);
+        console.log("Service");
+        let url = this.registerUrl;
+        return this.http.post(url, JSON.stringify(request_data), {headers: this.headers})
         .toPromise()
         .then((response: Response) => {
             console.log(response);

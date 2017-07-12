@@ -14,19 +14,26 @@ class authController extends Controller
     public function login(Request $request) {
         $request_data = $request->all();
         
+        
         if ( Auth::attempt( ['email' => $request_data['email'], 'password' => $request_data['password']] )) {
             $user = Auth::user();
             $success['token']=$user->createToken('MyApp')->accessToken;
 
             return response()->json(['success' => $success], $this->successStatus);
         } else {
+            var_dump($request_data);exit;
             return response()->json(['error' => 'unauthorized'], 401);
         }
     }
 
+    public function logout()
+    {
+        Auth::logout();
+    }
+    
     public function register(Request $request) {
 
-        $validator = Validator::make($request->all,[
+        $validator = Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:6',
@@ -39,6 +46,10 @@ class authController extends Controller
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
+        if (User::where('email',$input['email'])) {
+            return response()->json(['duplicate' => 'This Email address is already exist']);
+        } 
+
         $user = User::create($input);
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;

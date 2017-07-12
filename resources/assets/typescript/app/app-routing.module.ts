@@ -6,6 +6,7 @@ import { PlayersComponent } from "./players/players.component";
 import { PlayerDetailComponent } from "./player-detail/player-detail.component";
 import { PlayerOperationComponent } from "./player-operation/player-operation.component";
 import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
 
 //Routing Variable
 const routes:Routes = [
@@ -22,8 +23,16 @@ const routes:Routes = [
         component: LoginComponent
     },
     {
+        path: 'Login',
+        component: LoginComponent
+    },
+    {
         path: 'AddPlayer/:id',
         component: PlayerOperationComponent
+    },
+    {
+        path: 'Register',
+        component: RegisterComponent
     }
 ]
 

@@ -12,6 +12,7 @@ import { PlayersComponent } from './players/players.component';
 import { PlayerDetailComponent } from "./player-detail/player-detail.component";
 import { PlayerOperationComponent } from "./player-operation/player-operation.component";
 import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
 
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
@@ -23,7 +24,8 @@ import { StarService } from "./star.service";
     PlayersComponent,
     PlayerDetailComponent,
     PlayerOperationComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

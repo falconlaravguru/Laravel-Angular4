@@ -34,4 +34,8 @@ Route::prefix('angular')->group(function() {
     Route::post('Call/NewCall','CallController@newCall');
 
     Route::post('login','authController@login');
+
+    Route::post('register', 'authController@register');
+    
+    Route::get('logout', 'authController@logout');
 });
