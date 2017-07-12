@@ -28,4 +28,10 @@ Route::prefix('angular')->group(function() {
     Route::put('player/update/{id}','PlayerController@UpdatePlayer');
 
     Route::delete('player/delete/{id}','PlayerController@DeletePlayer');
+
+    Route::post('Call/Token','TokenController@newToken');
+
+    Route::post('Call/NewCall','CallController@newCall');
+
+    Route::post('login','authController@login');
 });

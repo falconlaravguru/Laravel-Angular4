@@ -5,6 +5,7 @@ import { RouterModule,Routes } from "@angular/router";
 import { PlayersComponent } from "./players/players.component";
 import { PlayerDetailComponent } from "./player-detail/player-detail.component";
 import { PlayerOperationComponent } from "./player-operation/player-operation.component";
+import { LoginComponent } from "./login/login.component";
 
 //Routing Variable
 const routes:Routes = [
@@ -18,7 +19,7 @@ const routes:Routes = [
     },
     {
         path: '',
-        component: PlayersComponent
+        component: LoginComponent
     },
     {
         path: 'AddPlayer/:id',

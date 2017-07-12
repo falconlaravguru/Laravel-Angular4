@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { StarService } from "../star.service";
 
@@ -125,7 +125,7 @@ export class PlayerOperationComponent implements OnInit {
         this.checkAdOrEd = false;
     }
  
-    constructor( private st_service: StarService, private route:ActivatedRoute) { }
+    constructor( private st_service: StarService, private route:ActivatedRoute, private router:Router) { }
     
     /**
      * Feature: Check Add a player or Update a player with id
@@ -162,15 +162,41 @@ export class PlayerOperationComponent implements OnInit {
     }
 
     add_player() {
+        this.playerNew.style = this.style_options;
+          if (this.club_options.length > 0 ) {
+            this.playerNew.club = this.club_options[0].toString();  
+          }
+
+          if (this.role_options.length > 0 ) {
+            this.playerNew.role = this.role_options[0].toString();
+          }
+
+          if (this.person_options.length > 0 ) {
+            this.playerNew.personality = this.person_options[0].toString();  
+          }
         this.st_service.create(this.playerNew).then((resp) => {
           console.log(resp);
+          this.router.navigate(['players']);
         });
     }
 
     update_player() {
       console.log(this.playerNew.id);
+      this.playerNew.style = this.style_options;
+        if (this.club_options.length > 0 ) {
+          this.playerNew.club = this.club_options[0].toString();  
+        }
+
+        if (this.role_options.length > 0 ) {
+          this.playerNew.role = this.role_options[0].toString();
+        }
+
+        if (this.person_options.length > 0 ) {
+          this.playerNew.personality = this.person_options[0].toString();  
+        }
       this.st_service.update(this.playerNew).then((resp) => {
         console.log(resp);
+        this.router.navigate(['players']);
       });
     }
 }

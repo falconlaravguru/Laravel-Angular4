@@ -85,6 +85,7 @@
         <script type="text/javascript" src="{{ asset('build/js/polyfills.js') }}?time={{ time() }}"></script>
         <script type="text/javascript" src="{{ asset('build/js/vendor.js') }}?time={{ time() }}"></script>
         <script type="text/javascript" src="{{ asset('build/js/app.js') }}?time={{ time() }}"></script>
+        <script src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
 
     </body>
 </html>
