@@ -49,4 +49,10 @@ export class LoginComponent implements OnInit {
     Register() {
         this.router.navigate(['Register']);
     }
+
+    GoogleSignIn() {
+        this.login_serve.googleSignIn().then((response: Object) => {
+            console.log(response);
+        });
+    }
 }

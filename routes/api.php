@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('angular')->group(function() {
+Route::middleware('cors')->prefix('angular')->group(function() {
 
     Route::get('players','PlayerController@GetPlayers');
 
@@ -38,4 +38,6 @@ Route::prefix('angular')->group(function() {
     Route::post('register', 'authController@register');
     
     Route::get('logout', 'authController@logout');
+
+    Route::get('GoogleAuth', ['as' => 'GoogleAuthentication', 'uses' => 'GoogleSSOController@SignIn']);
 });

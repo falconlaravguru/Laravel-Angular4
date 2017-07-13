@@ -40,6 +40,12 @@ return [
         'AuthToken' => env('TWILIO_AUTH_TOKEN'),
         'ApplicationSId' => env('TWILIO_APP_ID'),
         'PhoneNumber' => env('TWILIO_CALLER_NUMBER'),
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_SID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'developer_key' => env('GOOGLE_API_KEY'),
     ]
 
 ];

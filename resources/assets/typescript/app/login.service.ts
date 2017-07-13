@@ -7,11 +7,15 @@ import 'rxjs/add/operator/toPromise';
 export class LoginService {
 
     private headers = new Headers({
-        "content-type": "application/json"
+        "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "origin, content-type, accept, x-requested-with, sid, mycustom, smuser"
     });
     private loginUrl:string = "api/angular/login";
     private logoutUrl:string = "api/angular/logout";
     private registerUrl:string = "api/angular/register";
+    private gsigninUrl:string = "api/angular/GoogleAuth";
 
     constructor( private http: Http ) {}
 
@@ -46,6 +50,33 @@ export class LoginService {
         .toPromise()
         .then((response: Response) => {
             console.log(response);
+            
+        }).catch(LoginService.handleError);
+    }
+
+    googleSignIn(): Promise<Object> {
+        let url = this.gsigninUrl;
+        let headers = new Headers();
+        headers.append("Access-Control-Allow-Origin", "*");
+        headers.append("Access-Control-Allow-Credentials", "true"); 
+        
+        headers.append("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS, POST, PUT, DELETE");
+        headers.append("Content-Type", "application/x-www-form-urlencoded");
+        
+        return this.http.get(url)
+        .toPromise()
+        .then((response: Response) => {
+            let authUrl = response.json().authUrl;
+            if (authUrl != null) {
+                console.log(headers);
+                // this.http.post(authUrl, { headers: headers })
+                window.location.href = authUrl;
+                // .toPromise()    
+                // .then(() => {
+                //     return null;
+                // }).catch(LoginService.handleError);
+            }
+            return response.json();
         }).catch(LoginService.handleError);
     }
 
