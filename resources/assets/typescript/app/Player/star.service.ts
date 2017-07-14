@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Http, Response,URLSearchParams, RequestOptions, Headers } from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 
-import { Club } from "./model/club";
-import { Player } from "./model/player";
-import { Coach } from "./model/coach";
+import { Club } from "../model/club";
+import { Player } from "../model/player";
+import { Coach } from "../model/coach";
 
 @Injectable()
 export class StarService {

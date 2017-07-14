@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="col-xs-12">
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Name:</span>
+            <div class="col-sm-6">
+                <input type="text" [(ngModel)] = "clubNew.name" placeholder="name" /><br>
+            </div>
+            
+        </div>
+        
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Country:</span>
+            <div class="col-sm-6">
+                <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="CountryOptions" [texts]="myTexts" [settings]="singleSettings" [(ngModel)]="country_options"></ss-multiselect-dropdown>
+            </div>
+        </div>
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">City:</span>
+            <div class="col-sm-6">
+                <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="CityOptions" [texts]="myTexts" [settings]="singleSettings" [(ngModel)]="city_options"></ss-multiselect-dropdown>
+            </div>
+        </div>
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">League:</span>
+            <div class="col-sm-6">
+                <ss-multiselect-dropdown (ngModelChange) = "OnItemSelect()" [options]="LeagueOptions" [texts]="myTexts" [settings]="singleSettings" [(ngModel)]="league_options"></ss-multiselect-dropdown>
+            </div>
+        </div>
+        <div class="name col-sm-12 pt-8">
+            <span class="col-sm-3">Count:</span>
+            <input type="text" [(ngModel)]="clubNew.count" placeholder="UEFA Cups" />
+        </div>
+        
+    </div>
+    <div class="btn-add pt-8" *ngIf="id == 0">
+        <button type="button" class="btn btn-primary mt-8" (click)="add_club()">Add Club</button>
+    </div>
+    <div class="btn-add pt-8" *ngIf="id > 0">
+        <button type="button" class="btn btn-primary mt-8" (click)="update_club()">Update Club</button>
+    </div>
+</div>

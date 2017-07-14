@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
-import { Player } from "../model/player";
+import { Player } from "../../model/player";
 
 import { StarService } from "../star.service";
 
@@ -33,17 +33,17 @@ export class PlayersComponent implements OnInit {
 
   onSelected(selectedPlayer: Player): void {
     alert("selected");
-    this.router.navigate(['detail',selectedPlayer.id]);
+    this.router.navigate(['player-detail',selectedPlayer.id]);
   }
   
   OnAddPlayer(): void {
     alert("add player");
     let id = 0;
-    this.router.navigate(['AddPlayer', id]);
+    this.router.navigate(['Player-Add', id]);
   }
   OnEdit(id: number): void {
     alert(id);
-    this.router.navigate(['AddPlayer',id]);
+    this.router.navigate(['Player-Add',id]);
   }
   OnDelete(id: number): void {
     this.starService.delete(id);

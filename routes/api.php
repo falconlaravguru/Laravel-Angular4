@@ -40,4 +40,14 @@ Route::middleware('cors')->prefix('angular')->group(function() {
     Route::get('logout', 'authController@logout');
 
     Route::get('GoogleAuth', ['as' => 'GoogleAuthentication', 'uses' => 'GoogleSSOController@SignIn']);
+
+    Route::get('clubs','ClubController@GetClubs');
+
+    Route::get('club/{id}','ClubController@GetClub');
+
+    Route::post('club/create','ClubController@CreateClub');
+
+    Route::put('club/update/{id}','ClubController@UpdateClub');
+
+    Route::delete('club/delete/{id}','ClubController@DeleteClub');
 });

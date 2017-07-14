@@ -1,32 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from "@angular/http";
 
-import { Player } from "../model/player";
+import { Club } from "../../model/club";
 import { ActivatedRoute } from "@angular/router";
 
-import { StarService } from "../star.service";
-import { GoogleMapCustomService } from "../gmap.service";
+import { ClubService } from "../club.service";
+import { GoogleMapCustomService } from "../../gmap.service";
 
 declare const Twilio: any;
 
 @Component ({
-    selector: 'player-detail',
-    templateUrl: './player-detail.component.html',
-    styleUrls: ['./player-detail.component.scss'],
+    selector: 'club-detail',
+    templateUrl: './club-detail.component.html',
+    styleUrls: ['./club-detail.component.scss'],
     providers: [
-        StarService,
+        ClubService,
         GoogleMapCustomService
     ],
 })
 
-export class PlayerDetailComponent implements OnInit {
-    player_selected: Player;
+export class ClubDetailComponent implements OnInit {
+    club_selected: Club;
     id: number;
 
     lat: number = 0.00;
     lng: number = 0.00;
 
-    constructor( private starService: StarService, private gmapcustomService: GoogleMapCustomService, private route:ActivatedRoute, private http: Http) { }
+    constructor( private club_service: ClubService, private gmapcustomService: GoogleMapCustomService, private route:ActivatedRoute, private http: Http) { }
 
     ngOnInit() {
         
@@ -34,23 +34,8 @@ export class PlayerDetailComponent implements OnInit {
             this.id = +params['id'];
         });
 
-        this.starService.getPlayer(this.id).then((se_player) => {
-            this.player_selected = se_player;
-
-            let arr_styles = this.player_selected.style;
-            let temp_styles = '';
-
-            for (var key in arr_styles) {
-                let value = arr_styles[key];
-                console.log(key,value);
-                for ( var num in value ) {
-                    let desc = value[num];
-                    temp_styles += desc + ' ';
-                }
-            }
-
-            this.player_selected.styles = temp_styles;
-            console.log(this.player_selected);
+        this.club_service.getClub(this.id).then((se_club) => {
+            this.club_selected = se_club;
         });
         
         let parent = this;

@@ -1,0 +1,13 @@
+<div *ngIf = "club_selected" class="container">
+    <h1>Name: {{ club_selected.name }}</h1>
+    <h6>Country: {{ club_selected.country }} </h6>
+    <h6>City: {{ club_selected.city }} </h6>
+    <h6>League: {{ club_selected.league }} </h6>
+    <h6>UEFA Win Cups: {{ club_selected.count }} </h6>
+</div>
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<button type="button" class="btn btn-primary" (click)="callCustomer('+8613261665973')">Call</button>
