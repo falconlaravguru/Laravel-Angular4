@@ -39,6 +39,8 @@ Route::middleware('cors')->prefix('angular')->group(function() {
     
     Route::get('logout', 'authController@logout');
 
+    Route::get('login/checkout', 'authController@checkout');
+
     Route::get('GoogleAuth', ['as' => 'GoogleAuthentication', 'uses' => 'GoogleSSOController@SignIn']);
 
     Route::get('clubs','ClubController@GetClubs');

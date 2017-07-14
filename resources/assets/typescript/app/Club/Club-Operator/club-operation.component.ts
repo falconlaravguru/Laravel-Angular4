@@ -140,7 +140,7 @@ export class ClubOperationComponent implements OnInit {
           }
         this.club_service.create(this.clubNew).then((resp) => {
           console.log(resp);
-          this.router.navigate(['players']);
+          this.router.navigate(['clubs']);
         });
     }
 
@@ -160,7 +160,7 @@ export class ClubOperationComponent implements OnInit {
         }
       this.club_service.update(this.clubNew).then((resp) => {
         console.log(resp);
-        this.router.navigate(['players']);
+        this.router.navigate(['clubs']);
       });
     }
 }

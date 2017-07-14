@@ -4,6 +4,7 @@ import { HttpModule } from "@angular/http";
 import { FormsModule } from "@angular/forms";
 import { AgmCoreModule } from "@agm/core";
 import { AppRoutingModule } from "./app-routing.module";
+import { CookieModule } from "ngx-cookie";
 
 import { AppComponent } from './app.component';
 
@@ -42,7 +43,8 @@ import { StarService } from "./Player/star.service";
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDElmkJiFE0jDurWkUzGun0yNKS2NAxZu8'
     }),
-    MultiselectDropdownModule
+    MultiselectDropdownModule,
+    CookieModule.forRoot()
   ],
   providers: [StarService],
   bootstrap: [AppComponent]

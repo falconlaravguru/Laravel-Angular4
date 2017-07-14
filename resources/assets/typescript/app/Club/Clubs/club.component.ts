@@ -32,15 +32,17 @@ export class ClubComponent implements OnInit {
   }
 
   onSelected(selectedClub: Club): void {
+    console.log("123123123");
+    console.log(selectedClub);
     this.router.navigate(['club-detail',selectedClub.id]);
   }
   
   OnAddClub(): void {
     let id = 0;
-    this.router.navigate(['club-Add', id]);
+    this.router.navigate(['club-add', id]);
   }
   OnEdit(id: number): void {
-    this.router.navigate(['club-Add',id]);
+    this.router.navigate(['club-add',id]);
   }
   OnDelete(id: number): void {
     this.club_service.delete(id);

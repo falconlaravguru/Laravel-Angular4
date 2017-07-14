@@ -80,4 +80,15 @@ export class LoginService {
         }).catch(LoginService.handleError);
     }
 
+    checkout() {
+        let url = "api/angular/login/checkout";
+
+        this.http.get(url)
+        .toPromise()
+        .then((response) => {
+            console.log(response);
+        })
+        .catch(LoginService.handleError);
+    }
+
 }

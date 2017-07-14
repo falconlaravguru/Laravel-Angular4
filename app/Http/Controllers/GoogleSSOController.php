@@ -62,12 +62,12 @@ class GoogleSSOController extends Controller
         {
             //For logged in user, get details from google using access token
             $guser = $google_oauth_service->userinfo->get();  
-            
                 
             $token = session()->put('name', $guser['name']);
             if ($user =User::where('email',$guser['email'])->first())
             {
                 //logged your user via auth login
+                
                 Auth::login($user);
                 // return response()->json(['GLogin' => 'Google Log In Successfully'], 200);
                 return redirect('/#/players');
@@ -79,8 +79,18 @@ class GoogleSSOController extends Controller
                             'email' =>$guser['email'],
                             'password' => bcrypt($guser['name']),
                         ]);
-                return response()->json(['GLogin' => 'Google Log In Successfully'], 200);
-                
+                $user = new User;
+
+                $user->name = $guser['name'];
+                $user->username = $guser['family_name'];
+                $user->email = $guser['email'];
+                $user->password = bcrypt($guser['name']);
+
+                $user->save();
+
+                Auth::login($user);
+
+                return redirect('/#/players');
             }
         }
         else {

@@ -30,6 +30,18 @@ class authController extends Controller
     {
         Auth::logout();
     }
+
+    public function checkout() {
+        
+        if ( Auth::check() == true ) {
+            return response()->json("login");
+        }
+        else if( Auth::check() == false ) {
+            $user = Auth::user();
+            print_r($user);exit;
+            return response()->json("logout");
+        }
+    }
     
     public function register(Request $request) {
 
