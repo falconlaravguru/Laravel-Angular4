@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit {
             }
         ];
 
-        this.club_service.getClubs()
+        this.club_service.getPopClub()
         .then((response) => {
             console.log(response);
         });

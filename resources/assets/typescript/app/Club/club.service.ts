@@ -19,6 +19,7 @@ export class ClubService {
   public crt_Url: string = 'api/angular/club/create';
   public upt_Url: string = 'api/angular/club/update';
   public del_Url: string = 'api/angular/club/delete';
+  public pop_Url: string = 'api/angular/getPOP';
 
   private headers = new Headers({
     "content-type": "application/json"
@@ -60,6 +61,20 @@ export class ClubService {
         return club;
       })
       .catch(ClubService.handleError);
+  }
+
+  getPopClub(): Promise<Club> {
+    let url = `${this.pop_Url}`;
+
+    return this.http.get( url)
+    .toPromise()
+    .then((response) => {
+      
+      let clubs = response.json().data;
+      console.log(clubs);
+      return clubs;
+    })
+    .catch(ClubService.handleError);
   }
 
   create(club_new: Club): Promise<void> {

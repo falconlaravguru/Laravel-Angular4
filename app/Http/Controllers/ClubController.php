@@ -55,7 +55,25 @@ class ClubController extends Controller
     public function GetPOPClubs() {
         $data = Club::orderBy('count','desc')->paginate(4);
 
-        return response()->json($data);
+        $response_data = [];
+
+        foreach ($data as $key => $value) {
+            
+            $modified_data = [
+                'id' => $value->id,
+                'name' => $value->name,
+                'country' => $value->country->country_name,
+                'country_id' => $value->country_id,
+                'city' => $value->city->city_name,
+                'city_id' => $value->city_id,
+                'league' => $value->league->title,
+                'league_id' => $value->league_id,
+                'count' => $value->count,
+            ];
+
+            array_push($response_data,$modified_data);
+        }
+        return $response_data;
     }
 
     public function CreateClub(Request $request) {
