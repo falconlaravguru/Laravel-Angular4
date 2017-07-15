@@ -1,4 +1,10 @@
 <div class="container">
+     <ztw-carousel style='width:400px;height:300px;'>
+        <ztw-carousel-item *ngFor='let img of match_images'>
+        <img [src]='img.url' ztw-carousel-img>
+        </ztw-carousel-item>
+    </ztw-carousel>
+
     <div class="modal fade" id="selectedImageModal" >
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">

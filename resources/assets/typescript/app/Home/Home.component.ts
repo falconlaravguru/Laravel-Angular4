@@ -101,10 +101,22 @@ export class HomeComponent implements OnInit {
                 "id": 4
             }
         ];
-
+        
         this.club_service.getPopClub()
         .then((response) => {
-            console.log(response);
+            let index = 1;
+            for (let key in response) {
+                let club = {
+                    "url": this.image_url + 'ClubMark/' + index +'.png',
+                    "name": response[key].name,
+                    "country": response[key].country,
+                    "league": response[key].league,
+                    "trophies": response[key].count,
+                    "id": response[key].id
+                };
+                this.club_images.push(club);
+                index ++ ;
+            }
         });
     }
 
@@ -121,7 +133,7 @@ export class HomeComponent implements OnInit {
     }
 
     gotoClubDetail(id: number) {
-        console.log(id);
+        this.router.navigate(['club-detail', id]);
         
     }
 }

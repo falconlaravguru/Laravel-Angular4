@@ -22,6 +22,7 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component"; 
 
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+import { CarouselModule } from 'angular2-carousel-ztw/carousel.module';
 
 import { StarService } from "./Player/star.service";
 
@@ -47,7 +48,8 @@ import { StarService } from "./Player/star.service";
       apiKey: 'AIzaSyDElmkJiFE0jDurWkUzGun0yNKS2NAxZu8'
     }),
     MultiselectDropdownModule,
-    CookieModule.forRoot()
+    CookieModule.forRoot(),
+    CarouselModule
   ],
   providers: [StarService],
   bootstrap: [AppComponent]

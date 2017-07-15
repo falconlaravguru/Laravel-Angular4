@@ -69,8 +69,8 @@ export class ClubService {
     return this.http.get( url)
     .toPromise()
     .then((response) => {
-      
-      let clubs = response.json().data;
+      console.log(response);
+      let clubs = response.json();
       console.log(clubs);
       return clubs;
     })

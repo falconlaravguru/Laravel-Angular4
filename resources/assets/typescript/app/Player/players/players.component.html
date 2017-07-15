@@ -1,5 +1,5 @@
 <div class="container">
-    <button type="button" class="btn btn-primary" (click)="OnAddPlayer()">Add a player</button>
+    <button type="button" class="btn btn-primary" (click)="OnAddPlayer()"><i class="glyphicon glyphicon-plus"></i> Add player</button>
 
     <table class="table table-bordered mt-8">
         <thead class="table-header">
@@ -9,8 +9,7 @@
                 <td>Age</td>
                 <td>Club</td>
                 <td>Role</td>
-                <td>Edit</td>
-                <td>Delete</td>
+                <td width="240px">Action</td>
             </tr>
         </thead>
         <tbody>
@@ -31,10 +30,12 @@
                     {{player.role}}
                 </td>
                 <td>
-                    <button type="button" class="btn btn-success" (click) = "OnEdit(player.id)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-danger" (click) = "OnDelete(player.id)">Delete</button>
+                    <div class="col-xs-6">
+                        <button type="button" class="form-control btn btn-success" (click) = "OnEdit(player.id)"><i class="glyphicon glyphicon-edit"></i>  Edit</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="button" class="form-control btn btn-danger" (click) = "OnDelete(player.id)"><i class="glyphicon glyphicon-trash"></i> Delete</button>
+                    </div>
                 </td>
             </tr>
         </tbody>
