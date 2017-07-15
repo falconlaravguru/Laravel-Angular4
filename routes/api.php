@@ -52,4 +52,8 @@ Route::middleware('cors')->prefix('angular')->group(function() {
     Route::put('club/update/{id}','ClubController@UpdateClub');
 
     Route::delete('club/delete/{id}','ClubController@DeleteClub');
+
+    Route::get('sendSMS','smsController@sendMsg');
+
+    Route::get('getPOP','ClubController@GetPOPClubs');
 });

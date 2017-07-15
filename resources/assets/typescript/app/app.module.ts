@@ -8,6 +8,8 @@ import { CookieModule } from "ngx-cookie";
 
 import { AppComponent } from './app.component';
 
+import { HomeComponent } from "./Home/Home.component";
+
 import { PlayersComponent } from './Player/players/players.component';
 import { PlayerDetailComponent } from "./Player/player-detail/player-detail.component";
 import { PlayerOperationComponent } from "./Player/player-operation/player-operation.component";
@@ -33,7 +35,8 @@ import { StarService } from "./Player/star.service";
     ClubDetailComponent,
     ClubOperationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

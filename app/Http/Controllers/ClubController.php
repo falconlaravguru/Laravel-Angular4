@@ -52,6 +52,12 @@ class ClubController extends Controller
         return $response_data;
     }
 
+    public function GetPOPClubs() {
+        $data = Club::orderBy('count','desc')->paginate(4);
+
+        return response()->json($data);
+    }
+
     public function CreateClub(Request $request) {
         
         $request_data = $request->all();

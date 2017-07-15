@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { Club } from "../../model/club";
 
 import { ClubService } from "../club.service";
+import { CookieService } from "ngx-cookie";
 
 @Component({
   selector: 'app-clubs',
@@ -17,10 +18,15 @@ export class ClubComponent implements OnInit {
 
   clubs: Club[];
   selectedClub: Club;
-  constructor( private club_service: ClubService , private router:Router) { }
+  constructor( private club_service: ClubService , private router:Router, private cookie_service: CookieService ) { }
 
   ngOnInit() {
     this.getClubList();
+
+    if ( this.cookie_service.get('login_token') == null)
+    {
+        this.router.navigate(['Login']);
+    }
   }
 
   getClubList(): void {

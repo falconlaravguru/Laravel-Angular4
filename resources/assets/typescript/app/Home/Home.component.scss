@@ -1,0 +1,70 @@
+ul { padding:0; width:100%; margin:20px auto}
+li { display:inline;}
+.tn{ 
+    margin:auto;
+    box-shadow:#999 1px 1px 3px 1px; 
+    cursor: pointer 
+}
+
+ul#thumbnailsList li img {
+    width: calc((100%)/4 - 10px);
+    height: 150px;
+}
+
+.SoccerStars ul li {
+    width: 270px;
+    height: 500px;
+    float: left;
+}
+
+.SoccerStars ul li img{
+    width: 250px;
+    height: 300px;
+    margin: 20px;
+}
+
+.SoccerStars ul li p{
+    text-align: center;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.SoccerStars h1 {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Clubs ul li {
+    width: 270px;
+    height: 500px;
+    float: left;
+}
+
+.Clubs ul li img{
+    width: 250px;
+    height: 300px;
+    margin: 20px;
+}
+
+.Clubs ul li p{
+    text-align: center;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.Clubs h1 {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.selectImage {
+    padding-right: 10px;
+}
+.modal-content {
+    width: 700px !important;
+    margin:auto !important;
+}
+
+.clear {
+    clear: both;
+}

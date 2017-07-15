@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { ClubService } from "../club.service";
+import { CookieService } from "ngx-cookie";
 
 import { Club } from "../../model/club";
 import { IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
@@ -99,13 +100,18 @@ export class ClubOperationComponent implements OnInit {
         this.checkAdOrEd = false;
     }
  
-    constructor( private club_service: ClubService, private route:ActivatedRoute, private router:Router) { }
+    constructor( private club_service: ClubService, private route:ActivatedRoute, private router:Router, private cookie_service: CookieService) { }
     
     /**
      * Feature: Check Add a player or Update a player with id
      * After checking it, set playerNew with selected player Info.
      */
     ngOnInit() {
+
+        if ( this.cookie_service.get('login_token') == null)
+        {
+            this.router.navigate(['Login']);
+        }
 
         this.route.params.subscribe(params => {
             this.id = +params['id'];

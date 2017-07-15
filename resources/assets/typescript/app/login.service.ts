@@ -17,6 +17,8 @@ export class LoginService {
     private registerUrl:string = "api/angular/register";
     private gsigninUrl:string = "api/angular/GoogleAuth";
 
+    public logged_in:boolean = false;
+
     constructor( private http: Http ) {}
 
     private static handleError(error: any): Promise<any> {
@@ -29,7 +31,13 @@ export class LoginService {
         return this.http.post(url, JSON.stringify(request_data), {headers: this.headers})
         .toPromise()
         .then((response: Response) => {
+            if ( response.json().hasOwnProperty('success') ) {
+                this.logged_in = true;
+                console.log("123123123",this.logged_in);
+            }
+            console.log(this.logged_in);
             return response.json();
+
         }).catch(LoginService.handleError);
     }
 
@@ -39,6 +47,7 @@ export class LoginService {
         .toPromise()
         .then((response: Response) => {
             console.log(response);
+            this.logged_in = false;
         }).catch(LoginService.handleError);
     }
 

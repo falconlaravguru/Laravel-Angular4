@@ -13,11 +13,17 @@ import { ClubOperationComponent } from "./Club/Club-Operator/club-operation.comp
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 
+import { HomeComponent } from "./Home/Home.component";
+
 //Routing Variable
 const routes:Routes = [
     {
         path: '',
         component: LoginComponent
+    },
+    {
+        path: 'Home',
+        component: HomeComponent
     },
     {
         path: 'players',

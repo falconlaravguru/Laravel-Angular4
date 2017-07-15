@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="modal fade" id="selectedImageModal" >
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	         <div class="selectedImage" *ngIf="selectedImage">
+                <img src="{{selectedImage.url}}" >
+                <div class="caption">
+                    <p><strong>{{selectedImage.title}}</strong></p>
+                    <p>{{selectedImage.caption}}</p>
+                </div>
+            </div>
+	      </div>
+	    </div>
+	  </div>
+    </div>
+    <ul id="thumbnailsList">
+        <li *ngFor="let image of match_images" >
+            <img src="{{image.url}}" class="tn" data-toggle="modal" data-target="#selectedImageModal" (click)=setSelectedImage(image)>
+        </li>
+    </ul>
+    <br>
+    <div class="row">
+        <div class="SoccerStars">
+            <h1>The Soccer Stars</h1>
+            <ul>
+                <li *ngFor="let img of soccer_images" (click) = "gotoPlayerDetail(img.id)">
+                    <img src="{{ img.url }}">
+                    <div class="info">
+                        <p><strong>{{ img.name }}</strong></p>
+                        <p>{{ img.country }}</p>
+                        <p>{{ img.age }}</p>
+                        <p>{{ img.club }}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="row">
+        <div class="Clubs">
+            <h1>The Clubs</h1>
+            <ul>
+                <li *ngFor="let img of club_images" (click) = "gotoClubDetail(img.id)">
+                    <img src="{{ img.url }}">
+                    <div class="info">
+                        <p><strong>{{ img.name }}</strong></p>
+                        <p>{{ img.country }}</p>
+                        <p>{{ img.league }}</p>
+                        <p>{{ img.trophies }}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

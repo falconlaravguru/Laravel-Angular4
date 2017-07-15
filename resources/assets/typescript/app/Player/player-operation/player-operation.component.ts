@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { StarService } from "../star.service";
+import { CookieService } from "ngx-cookie";
 
 import { Player } from "../../model/Player";
 import { IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
@@ -11,7 +12,8 @@ import { IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'ang
   templateUrl: './player-operation.component.html',
   styleUrls: ['./player-operation.component.scss'],
   providers: [
-    StarService
+    StarService,
+    CookieService
   ],
 })
 export class PlayerOperationComponent implements OnInit {
@@ -125,13 +127,18 @@ export class PlayerOperationComponent implements OnInit {
         this.checkAdOrEd = false;
     }
  
-    constructor( private st_service: StarService, private route:ActivatedRoute, private router:Router) { }
+    constructor( private st_service: StarService, private route:ActivatedRoute, private router:Router, private cookie_service:CookieService) { }
     
     /**
      * Feature: Check Add a player or Update a player with id
      * After checking it, set playerNew with selected player Info.
      */
     ngOnInit() {
+
+        if ( this.cookie_service.get('login_token') == null)
+        {
+            this.router.navigate(['Login']);
+        }
 
         this.route.params.subscribe(params => {
             this.id = +params['id'];

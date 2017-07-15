@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from "@angular/http";
 
 import { Club } from "../../model/club";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { ClubService } from "../club.service";
 import { GoogleMapCustomService } from "../../gmap.service";
+import { CookieService } from "ngx-cookie";
 
 declare const Twilio: any;
 
@@ -26,9 +27,14 @@ export class ClubDetailComponent implements OnInit {
     lat: number = 0.00;
     lng: number = 0.00;
 
-    constructor( private club_service: ClubService, private gmapcustomService: GoogleMapCustomService, private route:ActivatedRoute, private http: Http) { }
+    constructor( private club_service: ClubService, private gmapcustomService: GoogleMapCustomService, private route:ActivatedRoute, private http: Http, private cookie_service: CookieService, private router:Router) { }
 
     ngOnInit() {
+
+        if ( this.cookie_service.get('login_token') == null)
+        {
+            this.router.navigate(['Login']);
+        }
         
        this.route.params.subscribe(params => {
             this.id = +params['id'];

@@ -13,13 +13,18 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a routerLink = "players">Home</a></li>
-                    <li><a routerLink = 'players'>Players</a></li>
-                    <li><a routerLink = "clubs">Clubs</a></li>
+                    <li (click)="setActive(1)" [ngClass] = "{'active':first==true}"><a routerLink = "players">Home</a></li>
+                    <li (click)="setActive(2)" [ngClass] = "{'active':second==true}" ><a routerLink = 'players'>Players</a></li>
+                    <li (click)="setActive(3)" [ngClass] = "{'active':third==true}"><a routerLink = "clubs">Clubs</a></li>
                 </ul>
                 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a routerLink="Login">Login</a></li>
+                    <li *ngIf = "login_check==false">
+                        <a routerLink="Login">Login</a>
+                    </li>
+                    <li *ngIf = "login_check==true">
+                        <a (click)="logout()">Logout</a>
+                    </li>
                 </ul>
             </div>
         </nav>

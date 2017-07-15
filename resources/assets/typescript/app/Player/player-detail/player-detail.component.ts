@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from "@angular/http";
 
 import { Player } from "../../model/player";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { StarService } from "../star.service";
 import { GoogleMapCustomService } from "../../gmap.service";
+import { CookieService } from "ngx-cookie";
 
 declare const Twilio: any;
 
@@ -15,7 +16,8 @@ declare const Twilio: any;
     styleUrls: ['./player-detail.component.scss'],
     providers: [
         StarService,
-        GoogleMapCustomService
+        GoogleMapCustomService,
+        CookieService
     ],
 })
 
@@ -26,10 +28,15 @@ export class PlayerDetailComponent implements OnInit {
     lat: number = 0.00;
     lng: number = 0.00;
 
-    constructor( private starService: StarService, private gmapcustomService: GoogleMapCustomService, private route:ActivatedRoute, private http: Http) { }
+    constructor( private starService: StarService, private gmapcustomService: GoogleMapCustomService, private route:ActivatedRoute, private http: Http, private cookie_service: CookieService, private router: Router) { }
 
     ngOnInit() {
         
+        if ( this.cookie_service.get('login_token') == null)
+        {
+            this.router.navigate(['Login']);
+        }
+
        this.route.params.subscribe(params => {
             this.id = +params['id'];
         });
@@ -139,6 +146,10 @@ export class PlayerDetailComponent implements OnInit {
     /* End a call */
     hangUp() {
         Twilio.Device.disconnectAll();
+    }
+
+    returnBack() {
+        this.router.navigate(['players']);
     }
 
 }
