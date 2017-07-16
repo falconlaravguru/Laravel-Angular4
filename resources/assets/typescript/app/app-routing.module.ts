@@ -19,7 +19,7 @@ import { HomeComponent } from "./Home/Home.component";
 const routes:Routes = [
     {
         path: '',
-        component: LoginComponent
+        component: HomeComponent
     },
     {
         path: 'Home',

@@ -169,4 +169,8 @@ export class ClubOperationComponent implements OnInit {
         this.router.navigate(['clubs']);
       });
     }
+
+    ReturnBack() {
+      this.router.navigate(['clubs']);
+    }
 }

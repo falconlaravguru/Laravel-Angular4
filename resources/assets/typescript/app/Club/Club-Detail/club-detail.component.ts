@@ -132,4 +132,8 @@ export class ClubDetailComponent implements OnInit {
         Twilio.Device.disconnectAll();
     }
 
+    returnBack() {
+        this.router.navigate(['clubs']);
+    }
+
 }

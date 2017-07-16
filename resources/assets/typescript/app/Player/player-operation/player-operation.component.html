@@ -1,4 +1,6 @@
+
 <div class="container">
+    <button type="button" class="btn btn-primary pull-right" (click)="returnBack()"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
     <div class="col-xs-12">
         <div class="name col-sm-12 pt-8">
             <span class="col-sm-3">Name:</span>
@@ -39,10 +41,13 @@
         </div>
         
     </div>
-    <div class="btn-add pt-8" *ngIf="id == 0">
-        <button type="button" class="btn btn-primary mt-8" (click)="add_player()">Add Player</button>
+    <div class="col-sm-12 pt-8">
+        <div class="btn-add pt-8" *ngIf="id == 0">
+            <button type="button" class="btn btn-primary mt-8" (click)="add_player()"><i class="glyphicon glyphicon-plus"></i> Add Player</button>
+        </div>
+        <div class="btn-add pt-8" *ngIf="id > 0">
+            <button type="button" class="btn btn-primary mt-8" (click)="update_player()"><i class="glyphicon glyphicon-edit"></i> Update Player</button>
+        </div>
     </div>
-    <div class="btn-add pt-8" *ngIf="id > 0">
-        <button type="button" class="btn btn-primary mt-8" (click)="update_player()">Update Player</button>
-    </div>
+    
 </div>

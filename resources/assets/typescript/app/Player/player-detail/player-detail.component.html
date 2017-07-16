@@ -1,15 +1,23 @@
-<button type="button" class="btn btn-primary pull-right" (click)="returnBack()">Back</button>
-<div *ngIf = "player_selected" class="container">
-    <h1>Name: {{ player_selected.name }}</h1>
-    <h6>Age: {{ player_selected.age }} </h6>
-    <h6>Club: {{ player_selected.club }} </h6>
-    <h6>Role: {{ player_selected.role }} </h6>
-    <h6>Style: {{ player_selected.styles }} </h6>
-    <h6>Personality: {{ player_selected.personality }} </h6>
+<div class="container">
+<button type="button" class="btn btn-primary pull-right" (click)="returnBack()"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+
+  <div *ngIf = "player_selected" class="row">
+      <h1>Name: {{ player_selected.name }}</h1>
+      <h6>Age: {{ player_selected.age }} </h6>
+      <h6>Club: {{ player_selected.club }} </h6>
+      <h6>Role: {{ player_selected.role }} </h6>
+      <h6>Style: {{ player_selected.styles }} </h6>
+      <h6>Personality: {{ player_selected.personality }} </h6>
+  </div>
 </div>
 
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+<div class="container">
+  <div class="row map-container">
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+  </div>
+  <button type="button" class="btn btn-primary pt-8" (click)="callCustomer('+8613261665973')"><i class="glyphicon glyphicon-phone-alt"></i> Call</button>
+  <button type="button" class="btn btn-danger pt-8" (click)="hangUp()" [disabled]="!isValidForm()"><i class="glyphicon glyphicon-earphone"></i> Hang Up</button>
+</div>
 
-<button type="button" class="btn btn-primary" (click)="callCustomer('+8613261665973')">Call</button>

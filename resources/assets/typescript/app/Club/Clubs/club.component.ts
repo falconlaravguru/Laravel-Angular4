@@ -53,5 +53,7 @@ export class ClubComponent implements OnInit {
   OnDelete(id: number): void {
     this.club_service.delete(id);
   }
-
+  returnBack() {
+      this.router.navigate(['Home']);
+  }
 }

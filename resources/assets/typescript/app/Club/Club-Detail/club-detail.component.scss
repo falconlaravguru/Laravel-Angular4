@@ -3,6 +3,20 @@ div {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.pt-8 {
+  margin-top: 8px;
+}
+
 agm-map {
   height: 300px;
+}
+
+agm-map div {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.map-container {
+  border: 1px solid black;
+  border-radius: 5px;
 }

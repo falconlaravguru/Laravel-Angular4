@@ -206,4 +206,8 @@ export class PlayerOperationComponent implements OnInit {
         this.router.navigate(['players']);
       });
     }
+
+    returnBack() {
+        this.router.navigate(['players']);
+    }
 }

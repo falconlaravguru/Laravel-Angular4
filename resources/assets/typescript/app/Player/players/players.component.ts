@@ -58,5 +58,7 @@ export class PlayersComponent implements OnInit {
   OnDelete(id: number): void {
     this.starService.delete(id);
   }
-
+  returnBack() {
+      this.router.navigate(['Home']);
+  }
 }
