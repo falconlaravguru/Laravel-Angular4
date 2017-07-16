@@ -22,7 +22,7 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component"; 
 
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
-import { CarouselModule } from 'angular2-carousel-ztw/carousel.module';
+import { SwiperModule } from 'angular2-useful-swiper';
 
 import { StarService } from "./Player/star.service";
 
@@ -49,7 +49,7 @@ import { StarService } from "./Player/star.service";
     }),
     MultiselectDropdownModule,
     CookieModule.forRoot(),
-    CarouselModule
+    SwiperModule
   ],
   providers: [StarService],
   bootstrap: [AppComponent]

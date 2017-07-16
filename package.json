@@ -41,6 +41,7 @@
     "@angular/platform-browser-dynamic": "4.0.0",
     "@angular/router": "4.0.0",
     "angular2-carousel-ztw": "^1.1.1",
+    "angular2-useful-swiper": "^4.0.6",
     "core-js": "^2.4.1",
     "ng2-owl-carousel": "^0.1.15",
     "ngx-cookie": "^1.0.0",

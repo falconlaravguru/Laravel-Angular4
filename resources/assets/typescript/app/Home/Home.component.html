@@ -1,30 +1,13 @@
 <div class="container">
-     <ztw-carousel style='width:400px;height:300px;'>
-        <ztw-carousel-item *ngFor='let img of match_images'>
-        <img [src]='img.url' ztw-carousel-img>
-        </ztw-carousel-item>
-    </ztw-carousel>
-
-    <div class="modal fade" id="selectedImageModal" >
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-body">
-	         <div class="selectedImage" *ngIf="selectedImage">
-                <img src="{{selectedImage.url}}" >
-                <div class="caption">
-                    <p><strong>{{selectedImage.title}}</strong></p>
-                    <p>{{selectedImage.caption}}</p>
-                </div>
+    <div class="row">
+        <swiper [config]="config">
+            <div class="swiper-wrapper">
+                <img class="swiper-slide" *ngFor="let image of match_images" [src]="image.url">
             </div>
-	      </div>
-	    </div>
-	  </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </swiper>
     </div>
-    <ul id="thumbnailsList">
-        <li *ngFor="let image of match_images" >
-            <img src="{{image.url}}" class="tn" data-toggle="modal" data-target="#selectedImageModal" (click)=setSelectedImage(image)>
-        </li>
-    </ul>
     <br>
     <div class="row">
         <div class="SoccerStars">
@@ -59,4 +42,5 @@
             </ul>
         </div>
     </div>
+    
 </div>

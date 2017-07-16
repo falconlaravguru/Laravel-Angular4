@@ -18,6 +18,23 @@ import { ClubService } from "../Club/club.service";
 
 export class HomeComponent implements OnInit {
 
+    config: Object = {
+            pagination: '.swiper-pagination',
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflow: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows : true
+            },
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false
+        };
+
     selectedImage;
     image_url: string = "http://localhost:8000/img/";
     match_images = [];
