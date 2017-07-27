@@ -57,9 +57,10 @@ class authController extends Controller
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        var_dump($input['email']);exit;
+        
         if (User::where('email',$input['email'])) {
-            
+            $user = User::where('email','=', $input['email'])->get();
+            var_dump("Exist:". $user);exit;
             return response()->json(['duplicate' => 'This Email address is already exist']);
         } 
 
