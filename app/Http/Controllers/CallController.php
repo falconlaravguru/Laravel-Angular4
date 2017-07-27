@@ -18,8 +18,13 @@ class CallController extends Controller
         
         $phoneNumberToDial = $request->input('phoneNumber');
 
-        $dial->number("+8613261665973");
-        $response->say("Thanks");
+        if (isset($phoneNumberToDial)) {
+            $dial->number("+8613261665973");
+            $response->say("Thanks");
+        } else {
+            $dial->client('Receiver');
+            $response->say("Thanks for your reply, Jake");
+        }
 
         return $response;
     }

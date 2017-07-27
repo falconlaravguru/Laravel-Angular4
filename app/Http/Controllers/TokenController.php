@@ -21,7 +21,7 @@ class TokenController extends Controller
         $client_token = new ClientToken($account_sid,$auth_token);
 
         $client_token->allowClientOutgoing($app_sid);
-        $client_token->allowClientInComing("Caller");
+        $client_token->allowClientInComing("Receiver");
 
         $token = $client_token->generateToken();
 
