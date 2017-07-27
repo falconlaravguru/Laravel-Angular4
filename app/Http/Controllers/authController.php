@@ -21,7 +21,6 @@ class authController extends Controller
 
             return response()->json(['success' => $success], $this->successStatus);
         } else {
-            var_dump($request_data);exit;
             return response()->json(['error' => 'unauthorized'], 401);
         }
     }
